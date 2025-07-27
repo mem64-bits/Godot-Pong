@@ -1,0 +1,6 @@
+.vscode/
+.godot
+.exe
+Build/
+.mono
+.apk
