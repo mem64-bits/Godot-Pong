@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://clh1ovy6guogb"]
+
+[ext_resource type="Script" uid="uid://b2bclsqc21k17" path="res://Scripts/SceneStateManager.gd" id="1_l0mor"]
+[ext_resource type="PackedScene" uid="uid://ce2ansp8gynid" path="res://Scenes/Paddle.tscn" id="1_q4bsm"]
+[ext_resource type="PackedScene" uid="uid://k1eqjk060gvp" path="res://Scenes/EnemyPaddle.tscn" id="3_wj3hr"]
+[ext_resource type="PackedScene" uid="uid://b1ahx0jb6x2fy" path="res://Scenes/Ball.tscn" id="3_x8mmd"]
+[ext_resource type="PackedScene" uid="uid://srgri1phpoa1" path="res://Scenes/DashedLine.tscn" id="4_vfn6p"]
+[ext_resource type="Script" uid="uid://syxfvrfuo133" path="res://Scripts/GoalScoring.gd" id="4_wj3hr"]
+[ext_resource type="PackedScene" uid="uid://dhb64wu0dklw0" path="res://Scenes/ScoreBoard.tscn" id="5_vfn6p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8mmd"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wj3hr"]
+b = Vector2(1200, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qgx02"]
+a = Vector2(0, 800)
+b = Vector2(1200, 800)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vfn6p"]
+b = Vector2(0, 800)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7seqv"]
+a = Vector2(1200, 0)
+b = Vector2(1200, 800)
+
+[node name="GameWindow" type="Node2D"]
+script = ExtResource("1_l0mor")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="GameBG" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="DashedLine" parent="CanvasLayer" instance=ExtResource("4_vfn6p")]
+position = Vector2(0, 64)
+
+[node name="Walls" type="StaticBody2D" parent="." groups=["Walls"]]
+physics_material_override = SubResource("PhysicsMaterial_x8mmd")
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_wj3hr")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_qgx02")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="PlayerGoal" type="Area2D" parent="."]
+script = ExtResource("4_wj3hr")
+
+[node name="PlayerGoal HitBox" type="CollisionShape2D" parent="PlayerGoal"]
+shape = SubResource("SegmentShape2D_vfn6p")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="EnemyGoal" type="Area2D" parent="."]
+script = ExtResource("4_wj3hr")
+
+[node name="EnemyGoal HitBox" type="CollisionShape2D" parent="EnemyGoal"]
+shape = SubResource("SegmentShape2D_7seqv")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="EnemyPaddle" parent="." instance=ExtResource("3_wj3hr")]
+position = Vector2(1187, 400)
+
+[node name="Ball" parent="." instance=ExtResource("3_x8mmd")]
+position = Vector2(600, 400)
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("1_q4bsm")]
+position = Vector2(13, 400)
+
+[node name="ScoreBoard" parent="." instance=ExtResource("5_vfn6p")]
+position = Vector2(512, 0)
+
+[connection signal="body_entered" from="PlayerGoal" to="PlayerGoal" method="ball_entered_player_goal"]
+[connection signal="enemy_scored" from="PlayerGoal" to="." method="on_enemy_scored"]
+[connection signal="reset_positions" from="PlayerGoal" to="." method="on_reset_positions"]
+[connection signal="body_entered" from="EnemyGoal" to="EnemyGoal" method="ball_entered_enemy_goal"]
+[connection signal="player_scored" from="EnemyGoal" to="." method="on_player_scored"]
+[connection signal="reset_positions" from="EnemyGoal" to="." method="on_reset_positions"]

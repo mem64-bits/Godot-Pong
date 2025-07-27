@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy3npqtl2d541"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_g5axy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_g5axy")
+parameters/looping = true

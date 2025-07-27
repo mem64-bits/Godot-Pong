@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://clh1ovy6guogb"]
+
+[ext_resource type="PackedScene" uid="uid://ce2ansp8gynid" path="res://Scenes/Paddle.tscn" id="1_q4bsm"]
+[ext_resource type="PackedScene" uid="uid://dfqe0ubm6jmxo" path="res://Scenes/EnemyPaddle.tscn" id="3_wj3hr"]
+[ext_resource type="PackedScene" uid="uid://b1ahx0jb6x2fy" path="res://Scenes/Ball.tscn" id="3_x8mmd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8mmd"]
+friction = 0.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wj3hr"]
+b = Vector2(1200, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qgx02"]
+a = Vector2(0, 800)
+b = Vector2(1200, 800)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wj3hr"]
+friction = 0.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vfn6p"]
+b = Vector2(0, 800)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l0mor"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7seqv"]
+a = Vector2(1200, 0)
+b = Vector2(1200, 800)
+
+[node name="GameWindow" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameBG" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerPaddle" parent="CanvasLayer/GameBG" instance=ExtResource("1_q4bsm")]
+position = Vector2(5, 400)
+
+[node name="Ball" parent="CanvasLayer/GameBG" instance=ExtResource("3_x8mmd")]
+position = Vector2(600, 400)
+
+[node name="PongLine" type="ColorRect" parent="CanvasLayer/GameBG"]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 603.0
+offset_bottom = 800.0
+
+[node name="EnemyPaddle" parent="CanvasLayer/GameBG" instance=ExtResource("3_wj3hr")]
+position = Vector2(1181, 400)
+
+[node name="HorizWalls" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_x8mmd")
+
+[node name="TopWall" type="CollisionShape2D" parent="HorizWalls"]
+shape = SubResource("SegmentShape2D_wj3hr")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="BottomWall" type="CollisionShape2D" parent="HorizWalls"]
+shape = SubResource("SegmentShape2D_qgx02")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="PlayerGoal" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_wj3hr")
+
+[node name="PlayerGoalLine" type="CollisionShape2D" parent="PlayerGoal"]
+shape = SubResource("SegmentShape2D_vfn6p")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="EnemyGoal" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_l0mor")
+
+[node name="EnemyGoalLine" type="CollisionShape2D" parent="EnemyGoal"]
+shape = SubResource("SegmentShape2D_7seqv")
+debug_color = Color(1, 0, 0, 1)

@@ -1,0 +1,11 @@
+res://Scenes/Ball.tscn::46fd63e234ddd1ca28680e44f7a8ad76::1753537663::res://.godot/exported/133200997/export-11f54682f61022e4afbedc07b01b845e-Ball.scn
+res://Scenes/DashedLine.tscn::91daf9432e2bc7ba5226941bc9393a1c::1753347823::res://.godot/exported/133200997/export-b1e20c05b1cff77441ad84ab192af67f-DashedLine.scn
+res://Scenes/EnemyPaddle.tscn::edd94f88f407f173922dbe2917e10bb8::1753537663::res://.godot/exported/133200997/export-b3af6c938d2c12b040da8475a55ca667-EnemyPaddle.scn
+res://Scenes/GameWindow.tscn::deb3d34501ea1153f357540981c97b7f::1753537663::res://.godot/exported/133200997/export-8de87b21eb008e149d2a95cba1ea67e2-GameWindow.scn
+res://Scenes/MainMenu.tscn::6c8ad79bcfceb1cff7a33bc4fb016449::1753537663::res://.godot/exported/133200997/export-5d46f2c25b5b7595677274e5845c73b8-MainMenu.scn
+res://Scenes/MusicPlayer.tscn::14629a9bbfaca8da7461b8b74fe18217::1753537663::res://.godot/exported/133200997/export-19cf90e15b36dabd52c08a2cb1373ae7-MusicPlayer.scn
+res://Scenes/Paddle.tscn::b4b8241ed70b1cfa43790b4d51548097::1753537663::res://.godot/exported/133200997/export-42e5f05022f9d83be2d228109a7a5ca0-Paddle.scn
+res://Scenes/ScoreBoard.tscn::b200b8726325d58589008dc579e309bc::1753538297::res://.godot/exported/133200997/export-9c378fd22e6b56975b901d353124d8f7-ScoreBoard.scn
+res://Scenes/WinLoseScreen.tscn::42891aff369d7abd9cb8a6a7265e83bc::1752499033::res://.godot/exported/133200997/export-da19a9ae786c0c7371b5f19e26d044e6-WinLoseScreen.scn
+res://Themes/MGS2Menu.tres::0d6c7c411bceea9f09b7ad3f547d6835::1752483905::res://.godot/exported/133200997/export-99c87c782e8e88e6d00cac466f66b513-MGS2Menu.res
+res://default_bus_layout.tres::752dc3486fa95acde6ba656ae82f5c2f::1752444245::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res

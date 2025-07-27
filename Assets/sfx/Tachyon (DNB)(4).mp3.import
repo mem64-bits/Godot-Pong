@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blkvjlp70nn3w"
+path="res://.godot/imported/Tachyon (DNB)(4).mp3-e95e8aa70aa5bded8c2454d8e75a8a45.mp3str"
+
+[deps]
+
+source_file="res://Assets/sfx/Tachyon (DNB)(4).mp3"
+dest_files=["res://.godot/imported/Tachyon (DNB)(4).mp3-e95e8aa70aa5bded8c2454d8e75a8a45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

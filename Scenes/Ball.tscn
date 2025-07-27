@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ahx0jb6x2fy"]
+
+[ext_resource type="Script" uid="uid://dw2us1mtkvh35" path="res://Scripts/DrawPolygonBall.gd" id="1_7nh6h"]
+[ext_resource type="Script" uid="uid://de512u2jpjb5g" path="res://Scripts/BallPhysics.gd" id="1_eb1ap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nh6h"]
+radius = 8.0
+
+[node name="Ball" type="Node2D"]
+
+[node name="BallPhysics" type="CharacterBody2D" parent="." groups=["ball_group"]]
+script = ExtResource("1_eb1ap")
+
+[node name="DrawnBall" type="Polygon2D" parent="BallPhysics"]
+script = ExtResource("1_7nh6h")
+
+[node name="BallCollision" type="CollisionShape2D" parent="BallPhysics"]
+shape = SubResource("CircleShape2D_7nh6h")

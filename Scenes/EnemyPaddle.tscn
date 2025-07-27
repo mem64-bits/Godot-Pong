@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://k1eqjk060gvp"]
+
+[ext_resource type="Script" uid="uid://cxd3s1ilc4o01" path="res://Scripts/EnemyPaddle.gd" id="2_5npq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wypp"]
+size = Vector2(16, 90)
+
+[node name="EnemyPaddle" type="Node2D"]
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+script = ExtResource("2_5npq6")
+
+[node name="Paddle Bar" type="ColorRect" parent="Paddle"]
+offset_left = -8.0
+offset_top = -45.0
+offset_right = 8.0
+offset_bottom = 45.0
+
+[node name="PaddleCollision" type="CollisionShape2D" parent="Paddle"]
+shape = SubResource("RectangleShape2D_8wypp")
+debug_color = Color(1, 0, 0, 0.501961)
+
+[node name="PredictiveRay" type="RayCast2D" parent="Paddle"]
+target_position = Vector2(-1200, 0)

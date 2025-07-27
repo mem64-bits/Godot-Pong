@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhb64wu0dklw0"]
+
+[ext_resource type="FontFile" uid="uid://gb00oinkj8ug" path="res://Assets/fonts/MGS2MENU.TTF" id="1_wdpl7"]
+[ext_resource type="Script" uid="uid://bdncfcbfm481p" path="res://Scripts/ScoreBoard.gd" id="2_81vpg"]
+
+[node name="ScoreBoard" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 5.0
+anchor_bottom = 1.6
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/CenterContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_wdpl7")
+theme_override_font_sizes/normal_font_size = 32
+fit_content = true
+script = ExtResource("2_81vpg")

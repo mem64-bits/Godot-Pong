@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce2ansp8gynid"]
+
+[ext_resource type="Script" uid="uid://dtn2ulgtl5enr" path="res://Scripts/PlayerPaddle.gd" id="1_8wypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wypp"]
+size = Vector2(16, 90)
+
+[node name="PlayerPaddle" type="Node2D"]
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+script = ExtResource("1_8wypp")
+
+[node name="PaddleBar" type="ColorRect" parent="Paddle"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -45.0
+offset_right = 8.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaddleCollision" type="CollisionShape2D" parent="Paddle"]
+shape = SubResource("RectangleShape2D_8wypp")
+debug_color = Color(0, 0, 1, 0.501961)
